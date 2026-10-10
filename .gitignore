@@ -1,0 +1,24 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+# User preference / chat databases
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+# Python / development artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+test_out.txt
+*.log
