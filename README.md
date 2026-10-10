@@ -16,6 +16,7 @@ This image was extracted unchanged from slide 4 of the original coursework prese
 
 - Travel-plan suggestions and questions about attractions, food, transport and budgets.
 - Keyword-based preference extraction and SQLite storage.
+- URL-based user IDs (`?user=...`) select separate saved preferences and conversation records.
 - Saved conversations that can be reviewed, resumed or deleted.
 - Local travel-reference lookup by an exact city name, with attractions checked first and restaurants used as a fallback.
 - CSS layouts for desktop and narrow screens.
@@ -46,6 +47,14 @@ A new local database at src/data/memory.db is created on first initialization. O
 Opening the application sends a greeting request to the configured API; submitting a question normally sends requests for intent classification and response generation. Live use requires an available model, internet access and the provider's API account.
 
 The default model name is deepseek-flash, following the [DeepSeek API quick start](https://api-docs.deepseek.com/). Model availability may change.
+
+## User IDs and saved records
+
+Open a fresh page with a user ID in the URL, for example `http://localhost:8501/?user=demo-a`. The application uses that ID to select the corresponding preferences and conversation records. Change it to `demo-b` and reopen the page to select another user's records. If the URL has no user ID, the application generates one and adds it to the URL.
+
+On initialization the application starts a new conversation. Use the **对话记录** button in the sidebar to review or resume earlier conversations for the selected ID. Saved preferences are also associated with that ID.
+
+This is record selection, without passwords or a login check; anyone with an ID can access its records. Use demonstration data rather than private information.
 
 ## Project structure
 
