@@ -2,7 +2,7 @@
 
 An individual undergraduate coursework project that uses the DeepSeek API to generate travel suggestions through a Python / Streamlit web interface.
 
-The project was completed by Shenghao Ye with AI assistance in code development. It is an application prototype, not a research result or a claim of independently writing every line of code.
+Author: Shenghao Ye. This is an individual coursework prototype; code development used AI assistance.
 
 [中文说明](README.zh-CN.md)
 
@@ -16,8 +16,8 @@ This image was extracted unchanged from slide 4 of the original coursework prese
 
 - Travel-plan suggestions and questions about attractions, food, transport and budgets.
 - Keyword-based preference extraction and SQLite storage.
-- Multiple conversation windows, history review and continuation.
-- Local travel-reference lookup by an exact city name.
+- Saved conversations that can be reviewed, resumed or deleted.
+- Local travel-reference lookup by an exact city name, with attractions checked first and restaurants used as a fallback.
 - CSS layouts for desktop and narrow screens.
 
 ## Run locally
@@ -59,8 +59,8 @@ The default model name is deepseek-flash, following the [DeepSeek API quick star
 
 ## Scope and limitations
 
-- Local JSON files were assembled through AI-assisted web searching and organization for the coursework, as reported by the author. Exact source URLs and collection dates were not retained; details and prices have not been independently verified. They are static demonstration references, not authoritative travel information.
-- Lookup is exact city-name filtering, without embeddings or a vector database. The current response path reads attraction and restaurant data; transport and travel-tip files are included but are not retrieved by that path.
+- Local JSON files were assembled through AI-assisted web searching and organization for the coursework. Exact source URLs and collection dates were not retained; details and prices have not been independently verified. They are static demonstration references, not authoritative travel information.
+- Lookup is exact city-name filtering, without embeddings or a vector database. The response path includes up to four attraction records if available; only when no matching attractions are found does it try up to three restaurant records. The choice is not tailored to whether the question asks about food. Transport and travel-tip files are included but are not retrieved by that path.
 - User IDs in URL parameters separate records, but there is no login or authorization system. Anyone who knows an ID can use it. Use this prototype locally for demonstration, not for storing private information on a public server.
 - Response generation receives a shortened history summary. It does not resend the complete conversation transcript.
 - API exceptions currently fall back to an empty result. Better error reporting and evaluation remain future work.
@@ -76,7 +76,7 @@ The tests use mock responses and temporary databases. They make no live API call
 
 ## Authorship and references
 
-This was individual coursework for 人工智能技术应用与实践. The student was responsible for completing the submitted project, and used AI for code development. That statement does not imply line-by-line independent coding or full mastery of every library.
+Course: 人工智能技术应用与实践.
 
 The repository preparation changes are recorded separately in [PREPARATION.md](docs/PREPARATION.md). The project uses [Streamlit](https://docs.streamlit.io/), the [OpenAI Python client](https://github.com/openai/openai-python) for compatible API calls, [DeepSeek](https://api-docs.deepseek.com/), and Python's SQLite interface.
 
